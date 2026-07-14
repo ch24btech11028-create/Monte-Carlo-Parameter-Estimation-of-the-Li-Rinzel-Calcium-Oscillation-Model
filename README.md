@@ -21,47 +21,39 @@ The Li–Rinzel model is a two-variable nonlinear dynamical system describing in
 
 The governing equations are:
 
-\[
-\frac{dCa}{dt}=J_{chan}+J_{leak}-J_{pump}
-\]
+## Model Equations
 
-\[
-\frac{dh}{dt}=\alpha_h(1-h)-\beta_hh
-\]
+The dynamics of intracellular calcium ($Ca$) and the gating variable ($h$) are governed by the following system of differential equations:
 
-The calcium fluxes are:
+$$ \frac{dCa}{dt} = J_{chan} + J_{leak} - J_{pump} $$
 
-\[
-J_{chan}=c_1v_1p^3n^3h^3(Ca_{ER}-Ca)
-\]
+$$ \frac{dh}{dt} = \alpha_h(1-h) - \beta_hh $$
 
-\[
-J_{leak}=c_1v_2(Ca_{ER}-Ca)
-\]
+### Calcium Fluxes
 
-\[
-J_{pump}=v_3\frac{Ca^2}{Ca^2+k_3^2}
-\]
+The individual calcium fluxes are defined as:
 
-where:
+$$ J_{chan} = c_1v_1p^3n^3h^3(Ca_{ER}-Ca) $$
 
-\[
-p=\frac{IP_3}{IP_3+d_1}, \qquad n=\frac{Ca}{Ca+d_5}
-\]
+$$ J_{leak} = c_1v_2(Ca_{ER}-Ca) $$
 
-\[
-Ca_{ER}=\frac{c_0-Ca}{c_1}
-\]
+$$ J_{pump} = v_3\frac{Ca^2}{Ca^2+k_3^2} $$
+
+### Model Parameters & Variables
+
+Where the gating variables and endoplasmic reticulum calcium concentration ($Ca_{ER}$) are defined by:
+
+$$ p = \frac{IP_3}{IP_3+d_1}, \qquad n = \frac{Ca}{Ca+d_5} $$
+
+$$ Ca_{ER} = \frac{c_0-Ca}{c_1} $$
+
+### Numerical Integration
 
 The model is integrated using the explicit Euler method:
 
-\[
-Ca_{t+1}=Ca_t+\Delta t\frac{dCa}{dt}
-\]
+$$ Ca_{t+1} = Ca_t + \Delta t\frac{dCa}{dt} $$
 
-\[
-h_{t+1}=h_t+\Delta t\frac{dh}{dt}
-\]
+$$ h_{t+1} = h_t + \Delta t\frac{dh}{dt} $$
 
 ## Computational workflow
 
