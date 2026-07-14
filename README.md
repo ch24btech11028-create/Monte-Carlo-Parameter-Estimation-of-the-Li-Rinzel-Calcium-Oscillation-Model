@@ -130,31 +130,23 @@ The notebook also evaluates a 30 × 30 grid of `k3` and `v2` values, giving 900 
 
 ### RMSE
 
-\[
-RMSE=\sqrt{\frac{1}{N}\sum_{i=1}^{N}(x_{exp,i}-x_{sim,i})^2}
-\]
+$$ RMSE = \sqrt{\frac{1}{N}\sum_{i=1}^{N}(x_{exp,i}-x_{sim,i})^2} $$
 
-RMSE measures pointwise error between the experimental and simulated signals.
+RMSE measures the pointwise error between the experimental and simulated signals.
 
-### Gaussian KL divergence
+### Gaussian KL Divergence
 
 The signals are fitted to Gaussian distributions using maximum likelihood estimation:
 
-\[
-D_{KL}(P\parallel Q)=
-\ln\left(\frac{\sigma_q}{\sigma_p}\right)+
-\frac{\sigma_p^2+(\mu_p-\mu_q)^2}{2\sigma_q^2}-\frac{1}{2}
-\]
+$$ D_{KL}(P\parallel Q) = \ln\left(\frac{\sigma_q}{\sigma_p}\right) + \frac{\sigma_p^2+(\mu_p-\mu_q)^2}{2\sigma_q^2} - \frac{1}{2} $$
 
 KL divergence measures the difference between the overall distributions of the two signals.
 
-### Frequency difference and FFT
+### Frequency Difference and FFT
 
-Peak frequency is estimated from the average peak-to-peak interval:
+The peak frequency is estimated from the average peak-to-peak interval:
 
-\[
-f=\frac{1}{\text{mean peak-to-peak time}}
-\]
+$$ f = \frac{1}{\text{mean peak-to-peak time}} $$
 
 The notebook also uses the real Fast Fourier Transform to calculate the dominant frequency as an independent frequency-domain check.
 
